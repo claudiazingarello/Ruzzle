@@ -155,6 +155,7 @@ public class FXMLController {
 
     	for(Pos cell: m.getBoard().getPositions()) {
     		this.letters.get(cell).textProperty().bind(m.getBoard().getCellValueProperty(cell));
+    		//binding su textProperty 
     	}
     	
     	this.txtStatus.textProperty().bind(m.statusTextProperty());

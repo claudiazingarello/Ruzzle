@@ -15,6 +15,14 @@ import javafx.beans.property.StringProperty;
  */
 public class Board {
 	private List<Pos> positions;
+	
+	/*
+	  Mappa di celle in cui la chiave è la posizione e 
+	  il valore è una StringProperty
+	  ogni volta che un carattere cambia nella StringProperty, questo si
+	  riflette automaticamente nell'interfaccia grafica
+	  si usano dei metodi set() e get()
+	 */
 	private Map<Pos, StringProperty> cells;
 
 	private int size;
@@ -39,6 +47,7 @@ public class Board {
 
 		//Ogni casella conterrà una String Property, inizialmente vuota, per contenere il proprio carattere  
 		for (Pos p : this.positions) {
+//			this.cells.put(p, "");
 			this.cells.put(p, new SimpleStringProperty());
 		}
 	}
@@ -67,6 +76,7 @@ public class Board {
 	 * Crea una nuova scacchiera generando tutte lettere casuali
 	 */
 	public void reset() {
+		//genera un carattere casuale per ogni cella
 		for(Pos p: this.positions) {
 			int random = (int)(Math.random()*26) ;
 			String letter = Character.toString((char)('A'+random)) ;
